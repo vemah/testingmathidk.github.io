@@ -276,7 +276,7 @@
 
 <body class="dark-mode">
     <h1>gn-math</h1>
-    <div style="width:100%; display:flex; justify-content:center; margin-bottom:10px;" id="ad">
+    <div style="width:100%; display:flex; justify-content:center; margin-bottom:10px;">
         <iframe src="https://www.profitableratecpm.com/kngebi9wp?key=63fddaa7420dbdf5238af227c3da8d43" style="width:90%; height:90px; border:none;"></iframe>
     </div>
     <input type="text" id="searchBar" placeholder="Search zones..." onkeyup="filterZones()">
@@ -493,48 +493,8 @@
             document.body.classList.toggle('dark-mode');
         });
         listZones();
-      // Function to toggle ad visibility
-      function toggleAd(show) {
-          const adDiv = document.getElementById('ad');
-          if (adDiv) {
-              adDiv.style.display = show ? 'flex' : 'none';
-          }
-      }
-
-      // Hide ads when a game is opened
-      function openZone(file) {
-          // Hide the ad when opening a zone
-          toggleAd(false);
-
-          if (file.url.startsWith("http")) {
-              window.location.href = file.url;
-          } else {
-              const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-              fetch(url).then(response => response.text()).then(html => {
-                  if (zoneFrame.contentDocument === null) {
-                      zoneFrame = document.createElement("iframe");
-                      zoneFrame.id = "zoneFrame";
-                      zoneViewer.appendChild(zoneFrame);
-                  }
-                  zoneFrame.contentDocument.open();
-                  zoneFrame.contentDocument.write(html);
-                  zoneFrame.contentDocument.close();
-                  document.getElementById('zoneName').textContent = file.name;
-                  document.getElementById('zoneId').textContent = file.id;
-                  zoneViewer.style.display = "block";
-              }).catch(error => alert("Failed to load zone: " + error));
-          }
-      }
-
-      // Show ads when game is closed
-      function closeZone() {
-          zoneViewer.style.display = "none";
-          zoneViewer.removeChild(zoneFrame);
-          // Show the ad again when returning to the main page
-          toggleAd(true);
-      }
     </script>
-    <div style="width:100%; display:flex; justify-content:center; margin-bottom:10px;" id="ad">
+    <div style="width:100%; display:flex; justify-content:center; margin-bottom:10px;">
         <iframe src="https://www.profitableratecpm.com/kngebi9wp?key=63fddaa7420dbdf5238af227c3da8d43" style="width:90%; height:90px; border:none;"></iframe>
     </div>
 </body>
