@@ -95,28 +95,19 @@ function openZone(file, fullscreen) {
     } else {
         const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
         fetch(url).then(response => response.text()).then(html => {
-            if (zoneFrame.contentDocument === null) {
-                zoneFrame = document.createElement("iframe");
-                zoneFrame.id = "zoneFrame";
-                zoneViewer.appendChild(zoneFrame);
-            }
-            zoneFrame.contentDocument.open();
-            zoneFrame.contentDocument.write(html);
-            zoneFrame.contentDocument.close();
-            document.getElementById('zoneName').textContent = file.name;
-            document.getElementById('zoneId').textContent = file.id;
             if (fullscreen) {
-                zoneFrame.style.position = "fixed";
-                zoneFrame.style.top = "0";
-                zoneFrame.style.left = "0";
-                zoneFrame.style.width = "100vw";
-                zoneFrame.style.height = "100vh";
-                zoneFrame.style.border = "none";
-                zoneFrame.style.zIndex = "9999";
-                zoneViewer.style.display = "none";
-                sortOptions.style.display = "none";
-                searchBar.style.display = "none";
+                document.write(html);
             } else {
+                if (zoneFrame.contentDocument === null) {
+                    zoneFrame = document.createElement("iframe");
+                    zoneFrame.id = "zoneFrame";
+                    zoneViewer.appendChild(zoneFrame);
+                }
+                zoneFrame.contentDocument.open();
+                zoneFrame.contentDocument.write(html);
+                zoneFrame.contentDocument.close();
+                document.getElementById('zoneName').textContent = file.name;
+                document.getElementById('zoneId').textContent = file.id;
                 zoneFrame.style = "";
                 zoneViewer.appendChild(zoneFrame);
                 zoneViewer.style.display = "block";
