@@ -113,6 +113,10 @@
             color: #9c9c9c;
         }
 
+        #zoneAuthor {
+            color: #aaaaaa;
+        }
+
         #controls {
             text-align: right;
         }
@@ -298,7 +302,7 @@
     <div id="zoneViewer">
         <div id="zoneInfo">
             <div id="zoneTitle">
-                <span id="zoneName"></span> <span id="zoneId"></span>
+                <span id="zoneName"></span> <span id="zoneAuthor"></span> <span id="zoneId"></span>
             </div>
             <div id="controls">
                 <button onclick="closeZone()">Close</button>
@@ -416,6 +420,10 @@
                     zoneFrame.contentDocument.close();
                     document.getElementById('zoneName').textContent = file.name;
                     document.getElementById('zoneId').textContent = file.id;
+                    document.getElementById('zoneAuthor').textContent = file.author;
+                    if (file.authorLink) {
+                        document.getElementById('zoneAuthor').link = file.authorLink;
+                    }
                     zoneViewer.style.display = "block";
                 }).catch(error => alert("Failed to load zone: " + error));
             }

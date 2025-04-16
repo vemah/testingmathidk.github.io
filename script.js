@@ -104,6 +104,10 @@ function openZone(file) {
             zoneFrame.contentDocument.close();
             document.getElementById('zoneName').textContent = file.name;
             document.getElementById('zoneId').textContent = file.id;
+            document.getElementById('zoneAuthor').textContent = file.author;
+            if (file.authorLink) {
+                document.getElementById('zoneAuthor').link = file.authorLink;
+            }
             zoneViewer.style.display = "block";
         }).catch(error => alert("Failed to load zone: " + error));
     }
