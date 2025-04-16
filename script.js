@@ -19,9 +19,10 @@ async function listZones() {
         const search = new URLSearchParams(window.location.search);
         const id = search.get('id');
         if (id) {
+            const fullscreen = search.get('fullscreen');
             const zone = zones.find(zone => zone.id + '' == id + '');
             if (zone) {
-                openZone(zone);
+                openZone(zone, fullscreen ? true : false);
             }
         }
     } catch (error) {
@@ -88,7 +89,7 @@ function filterZones() {
     displayZones(filteredZones);
 }
 
-function openZone(file) {
+function openZone(file, fullscreen) {
     if (file.url.startsWith("http")) {
         window.location.href = file.url;
     } else {
@@ -104,7 +105,22 @@ function openZone(file) {
             zoneFrame.contentDocument.close();
             document.getElementById('zoneName').textContent = file.name;
             document.getElementById('zoneId').textContent = file.id;
-            zoneViewer.style.display = "block";
+            if (fullscreen) {
+                zoneFrame.style.position = "fixed";
+                zoneFrame.style.top = "0";
+                zoneFrame.style.left = "0";
+                zoneFrame.style.width = "100vw";
+                zoneFrame.style.height = "100vh";
+                zoneFrame.style.border = "none";
+                zoneFrame.style.zIndex = "9999";
+                zoneViewer.style.display = "none";
+                sortOptions.style.display = "none";
+                searchBar.style.display = "none";
+            } else {
+                zoneFrame.style = "";
+                zoneViewer.appendChild(zoneFrame);
+                zoneViewer.style.display = "block";
+            }
         }).catch(error => alert("Failed to load zone: " + error));
     }
 }
