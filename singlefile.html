@@ -331,10 +331,9 @@
                 const search = new URLSearchParams(window.location.search);
                 const id = search.get('id');
                 if (id) {
-                    const fullscreen = search.get('fullscreen');
                     const zone = zones.find(zone => zone.id + '' == id + '');
                     if (zone) {
-                        openZone(zone, fullscreen ? true : false);
+                        openZone(zone);
                     }
                 }
             } catch (error) {
@@ -401,29 +400,23 @@
             displayZones(filteredZones);
         }
 
-        function openZone(file, fullscreen) {
+        function openZone(file) {
             if (file.url.startsWith("http")) {
                 window.location.href = file.url;
             } else {
                 const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
                 fetch(url).then(response => response.text()).then(html => {
-                    if (fullscreen) {
-                        document.write(html);
-                    } else {
-                        if (zoneFrame.contentDocument === null) {
-                            zoneFrame = document.createElement("iframe");
-                            zoneFrame.id = "zoneFrame";
-                            zoneViewer.appendChild(zoneFrame);
-                        }
-                        zoneFrame.contentDocument.open();
-                        zoneFrame.contentDocument.write(html);
-                        zoneFrame.contentDocument.close();
-                        document.getElementById('zoneName').textContent = file.name;
-                        document.getElementById('zoneId').textContent = file.id;
-                        zoneFrame.style = "";
+                    if (zoneFrame.contentDocument === null) {
+                        zoneFrame = document.createElement("iframe");
+                        zoneFrame.id = "zoneFrame";
                         zoneViewer.appendChild(zoneFrame);
-                        zoneViewer.style.display = "block";
                     }
+                    zoneFrame.contentDocument.open();
+                    zoneFrame.contentDocument.write(html);
+                    zoneFrame.contentDocument.close();
+                    document.getElementById('zoneName').textContent = file.name;
+                    document.getElementById('zoneId').textContent = file.id;
+                    zoneViewer.style.display = "block";
                 }).catch(error => alert("Failed to load zone: " + error));
             }
         }
