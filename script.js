@@ -104,7 +104,7 @@ function openZone(file) {
             zoneFrame.contentDocument.close();
             document.getElementById('zoneName').textContent = file.name;
             document.getElementById('zoneId').textContent = file.id;
-            document.getElementById('zoneAuthor').textContent = "by "+file.author;
+            document.getElementById('zoneAuthor').textContent = "by " + file.author;
             if (file.authorLink) {
                 document.getElementById('zoneAuthor').href = file.authorLink;
             }
@@ -184,3 +184,27 @@ darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 listZones();
+
+function showContact() {
+    document.getElementById('popupTitle').textContent = "Contact";
+    const popupBody = document.getElementById('popupBody');
+    popupBody.innerHTML = `<p>Discord: https://discord.gg/NAFw4ykZ7n</p>`;
+    popupBody.contentEditable = true;
+    document.getElementById('popupOverlay').style.display = "flex";
+}
+
+function loadPrivacy() {
+    fetch('privacy.txt').then(response => response.text()).then(data => {
+        document.getElementById('popupTitle').textContent = "Privacy Policy";
+        const popupBody = document.getElementById('popupBody');
+        popupBody.textContent = data;
+        popupBody.contentEditable = false;
+        document.getElementById('popupOverlay').style.display = "flex";
+    }).catch(err => {
+        alert("Failed to load privacy policy: " + err);
+    });
+}
+
+function closePopup() {
+    document.getElementById('popupOverlay').style.display = "none";
+}
