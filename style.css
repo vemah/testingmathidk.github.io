@@ -333,3 +333,19 @@ body:not(.dark-mode) #sortOptions {
     padding: 10px;
     border-radius: 4px;
 }
+
+#green-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-right: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+#green-button:hover {
+    background-color: #218838;
+}
