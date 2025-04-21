@@ -334,18 +334,18 @@ body:not(.dark-mode) #sortOptions {
     border-radius: 4px;
 }
 
-#green-button {
+#download.green-button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
     background-color: #28a745;
     color: white;
-    border: none;
-    padding: 6px 12px;
-    margin-right: 8px;
-    border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
-    transition: background-color 0.2s ease;
+    border-radius: 3px;
+    font-size: 14px;
+    transition: background-color 0.2s;
 }
 
-#green-button:hover {
+#download.green-button:hover {
     background-color: #218838;
 }
