@@ -514,7 +514,7 @@
                 window.location.href = file.url;
             } else {
                 const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-                fetch(url).then(response => response.text()).then(html => {
+                fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
                     if (zoneFrame.contentDocument === null) {
                         zoneFrame = document.createElement("iframe");
                         zoneFrame.id = "zoneFrame";
@@ -536,7 +536,7 @@
 
         function downloadZone() {
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent);
-            fetch(zone.url.replace("{HTML_URL}", htmlURL)).then(res => res.text()).then(text => {
+            fetch(zone.url.replace("{HTML_URL}", htmlURL)+"?t="+Date.now()).then(res => res.text()).then(text => {
                 const blob = new Blob([text], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -554,7 +554,7 @@
         function aboutBlank() {
             const newWindow = window.open("about:blank", "_blank");
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-            fetch(zone).then(response => response.text()).then(html => {
+            fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
                 if (newWindow) {
                     newWindow.document.open();
                     newWindow.document.write(html);

@@ -191,7 +191,7 @@
             font-size: 16px;
             appearance: none;
             background-color: white;
-            background-image: url('data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>');
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
             background-repeat: no-repeat;
             background-position: right .75rem center;
             background-size: 8px 10px;
@@ -268,7 +268,7 @@
             background-color: white;
             color: #000;
             border-color: #ddd;
-            background-image: url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E');
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
         }
 
         .zone-wrapper {
@@ -375,7 +375,7 @@
     <div id='topControls'>
         <div id='dataButtons'>
             <button onclick='saveData()'>Save Data</button>
-            <button onclick='document.getElementById('file').click()'>Load Data</button>
+            <button onclick='document.getElementById("file").click()'>Load Data</button>
             <input type='file' id='file' style='display:none' onchange='loadData(event)' />
         </div>
         <select id='sortOptions' onchange='sortZones()'>
@@ -517,7 +517,7 @@
                 window.location.href = file.url;
             } else {
                 const url = file.url.replace('{COVER_URL}', coverURL).replace('{HTML_URL}', htmlURL);
-                fetch(url).then(response => response.text()).then(html => {
+                fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
                     if (zoneFrame.contentDocument === null) {
                         zoneFrame = document.createElement('iframe');
                         zoneFrame.id = 'zoneFrame';
@@ -539,7 +539,7 @@
 
         function downloadZone() {
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent);
-            fetch(zone.url.replace('{HTML_URL}', htmlURL)).then(res => res.text()).then(text => {
+            fetch(zone.url.replace('{HTML_URL}', htmlURL)+"?t="+Date.now()).then(res => res.text()).then(text => {
                 const blob = new Blob([text], {
                     type: 'text/plain;charset=utf-8'
                 });
@@ -557,7 +557,7 @@
         function aboutBlank() {
             const newWindow = window.open('about:blank', '_blank');
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace('{COVER_URL}', coverURL).replace('{HTML_URL}', htmlURL);
-            fetch(zone).then(response => response.text()).then(html => {
+            fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
                 if (newWindow) {
                     newWindow.document.open();
                     newWindow.document.write(html);

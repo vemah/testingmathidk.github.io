@@ -93,7 +93,7 @@ function openZone(file) {
         window.location.href = file.url;
     } else {
         const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-        fetch(url).then(response => response.text()).then(html => {
+        fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
             if (zoneFrame.contentDocument === null) {
                 zoneFrame = document.createElement("iframe");
                 zoneFrame.id = "zoneFrame";
@@ -116,7 +116,7 @@ function openZone(file) {
 function aboutBlank() {
     const newWindow = window.open("about:blank", "_blank");
     let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-    fetch(zone).then(response => response.text()).then(html => {
+    fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
         if (newWindow) {
             newWindow.document.open();
             newWindow.document.write(html);
