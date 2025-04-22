@@ -11,7 +11,7 @@ let zones = [];
 let popularityData = {};
 async function listZones() {
     try {
-        const response = await fetch(zonesURL);
+        const response = await fetch(zonesURL+"?t="+Date.now());
         const json = await response.json();
         zones = json;
         await fetchPopularity();
