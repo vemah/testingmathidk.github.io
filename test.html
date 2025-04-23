@@ -433,11 +433,18 @@
                 const response = await fetch(zonesURL+"?t="+Date.now());
                 const json = await response.json();
                 zones = json;
-                let zonee=zones[0];
-                zonee.name='[!] SUGGEST GAMES'
-                zonee.cover='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Forms_logo_%282014-2020%29.svg/1489px-Google_Forms_logo_%282014-2020%29.svg.png'
-                zonee.url='${REPLACE THISSS}'
-                zones[0]=zonee;
+                zones[0] = {
+                    "id": -1,
+                    "name": "[!] SUGGEST GAMES",
+                    "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Forms_logo_%282014-2020%29.svg/1489px-Google_Forms_logo_%282014-2020%29.svg.png",
+                    "url": "${REPLACE THISSS}"
+                };
+                zones.push({
+                    "id": -2,
+                    "name": "[!] $$$1",
+                    "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Forms_logo_%282014-2020%29.svg/1489px-Google_Forms_logo_%282014-2020%29.svg.png",
+                    "url": "$$$2"
+                });
                 await fetchPopularity();
                 sortZones();
                 const search = new URLSearchParams(window.location.search);
