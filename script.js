@@ -90,7 +90,7 @@ function filterZones() {
 
 function openZone(file) {
     if (file.url.startsWith("http")) {
-        window.location.href = file.url;
+        window.open(file.url, "_blank");
     } else {
         const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
         fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
