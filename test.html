@@ -439,12 +439,12 @@
                     "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Forms_logo_%282014-2020%29.svg/1489px-Google_Forms_logo_%282014-2020%29.svg.png",
                     "url": "${REPLACE THISSS}"
                 };
-                zones.push({
+                zones[zones.length] = {
                     "id": -2,
                     "name": "[!] $$$1",
-                    "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Google_Forms_logo_%282014-2020%29.svg/1489px-Google_Forms_logo_%282014-2020%29.svg.png",
+                    "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1200px-Google_Sheets_logo_%282014-2020%29.svg.png",
                     "url": "$$$2"
-                });
+                };
                 await fetchPopularity();
                 sortZones();
                 const search = new URLSearchParams(window.location.search);
