@@ -185,7 +185,7 @@ h1 {
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
 
-#darkModeToggle {
+#settings {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -200,8 +200,44 @@ h1 {
     z-index: 1000;
 }
 
-#darkModeToggle:hover {
+#settings:hover {
     background-color: #0056b3;
+}
+
+#settings-button {
+    position: fixed;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+#settings-button:hover {
+    background-color: #0056b3;
+}
+
+#tab-cloak-textbox {
+    position: fixed;
+    width: 250px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#tab-cloak-textbox:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
 }
 
 body:not(.dark-mode) {

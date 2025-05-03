@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
+    <base href="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5521219086088837" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX5VS54ZDW"></script>
+    <meta name="google-adsense-account" content="ca-pub-5521219086088837">
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -16,8 +18,20 @@
     <script async src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
     <script src='https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js'></script>
     <meta charset="UTF-8">
+    <link rel="icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gn-math</title>
+    <meta name="title" content="GN-Math">
+    <meta name="description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gn-math.github.io/">
+    <meta property="og:title" content="GN-Math">
+    <meta property="og:description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://gn-math.github.io/">
+    <meta name="twitter:title" content="GN-Math">
+    <meta name="twitter:description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
+    <meta name="keywords" content="unblocked games, games for school, browser games, chromebook games, no download games, html5 games, free unblocked games, gn-math, fun games at school, crazy cattle 3d, play crazy cattle 3d, crazy cattle 3d unblocked, crazy cattle, crazy cattle unblocked, play crazy cattle, crazy cattle online, crazy cattle 3d online">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -206,7 +220,7 @@
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
         }
 
-        #darkModeToggle {
+        #settings {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -221,8 +235,44 @@
             z-index: 1000;
         }
 
-        #darkModeToggle:hover {
+        #settings:hover {
             background-color: #0056b3;
+        }
+
+        #settings-button {
+            position: fixed;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        #settings-button:hover {
+            background-color: #0056b3;
+        }
+
+        #tab-cloak-textbox {
+            position: fixed;
+            width: 250px;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            outline: none;
+            background-color: white;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        #tab-cloak-textbox:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
         }
 
         body:not(.dark-mode) {
@@ -406,7 +456,7 @@
         </div>
         <iframe id="zoneFrame"></iframe>
     </div>
-    <button id="darkModeToggle">Toggle Dark Mode</button>
+    <button id="settings">Settings</button>
     <div id="footerButtons">
         <button onclick="showContact()">Contact</button>
         <button onclick="loadPrivacy()">Privacy Policy</button>
@@ -434,7 +484,7 @@
         let popularityData = {};
         async function listZones() {
             try {
-                const response = await fetch(zonesURL+"?t="+Date.now());
+                const response = await fetch(zonesURL + "?t=" + Date.now());
                 const json = await response.json();
                 zones = json;
                 await fetchPopularity();
@@ -516,7 +566,7 @@
                 window.open(file.url, "_blank");
             } else {
                 const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-                fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
+                fetch(url + "?t=" + Date.now()).then(response => response.text()).then(html => {
                     if (zoneFrame.contentDocument === null) {
                         zoneFrame = document.createElement("iframe");
                         zoneFrame.id = "zoneFrame";
@@ -536,9 +586,26 @@
             }
         }
 
+        function aboutBlank() {
+            const newWindow = window.open("about:blank", "_blank");
+            let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
+            fetch(zone + "?t=" + Date.now()).then(response => response.text()).then(html => {
+                if (newWindow) {
+                    newWindow.document.open();
+                    newWindow.document.write(html);
+                    newWindow.document.close();
+                }
+            })
+        }
+
+        function closeZone() {
+            zoneViewer.style.display = "none";
+            zoneViewer.removeChild(zoneFrame);
+        }
+
         function downloadZone() {
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent);
-            fetch(zone.url.replace("{HTML_URL}", htmlURL)+"?t="+Date.now()).then(res => res.text()).then(text => {
+            fetch(zone.url.replace("{HTML_URL}", htmlURL) + "?t=" + Date.now()).then(res => res.text()).then(text => {
                 const blob = new Blob([text], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -551,23 +618,6 @@
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
             });
-        }
-
-        function aboutBlank() {
-            const newWindow = window.open("about:blank", "_blank");
-            let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-            fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
-                if (newWindow) {
-                    newWindow.document.open();
-                    newWindow.document.write(html);
-                    newWindow.document.close();
-                }
-            })
-        }
-
-        function closeZone() {
-            zoneViewer.style.display = "none";
-            zoneViewer.removeChild(zoneFrame);
         }
 
         function fullscreenZone() {
@@ -619,22 +669,71 @@
             };
             reader.readAsText(file);
         }
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+
+        function darkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function cloakIcon(url) {
+            const link = document.querySelector("link[rel~='icon']");
+            link.rel = "icon";
+            if ((url + "").trim().length === 0) {
+                link.href = "favicon.png";
+            } else {
+                link.href = url;
+            }
+            document.head.appendChild(link);
+        }
+
+        function cloakName(string) {
+            if ((string + "").trim().length === 0) {
+                document.title = "gn-math";
+                return;
+            }
+            document.title = string;
+        }
+
+        function tabCloak() {
+            closePopup();
+            document.getElementById('popupTitle').textContent = "Tab Cloak";
+            const popupBody = document.getElementById('popupBody');
+            popupBody.innerHTML = `
+        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Title:</label><br>
+        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab name..." oninput="cloakName(this.value)">
+        <br><br>
+        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Icon:</label><br>
+        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab icon..." oninput='cloakIcon(this.value)'>
+        <br><br>
+        <br>
+    `;
+            popupBody.contentEditable = false;
+            document.getElementById('popupOverlay').style.display = "flex";
+        }
+        const settings = document.getElementById('settings');
+        settings.addEventListener('click', () => {
+            document.getElementById('popupTitle').textContent = "Settings";
+            const popupBody = document.getElementById('popupBody');
+            // idk a better way to do this ngl
+            popupBody.innerHTML = `
+    <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
+    <br><br>
+    <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
+    <br>
+    `;
+            popupBody.contentEditable = false;
+            document.getElementById('popupOverlay').style.display = "flex";
         });
-        listZones();
 
         function showContact() {
             document.getElementById('popupTitle').textContent = "Contact";
             const popupBody = document.getElementById('popupBody');
             popupBody.innerHTML = `<p>Discord: https://discord.gg/NAFw4ykZ7n</p>`;
-            popupBody.contentEditable = true;
+            popupBody.contentEditable = false;
             document.getElementById('popupOverlay').style.display = "flex";
         }
 
         function loadPrivacy() {
-            fetch('https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/privacy.txt').then(response => response.text()).then(data => {
+            fetch('privacy.txt').then(response => response.text()).then(data => {
                 document.getElementById('popupTitle').textContent = "Privacy Policy";
                 const popupBody = document.getElementById('popupBody');
                 popupBody.textContent = data;

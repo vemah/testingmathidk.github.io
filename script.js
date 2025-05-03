@@ -196,17 +196,65 @@ function loadData(event) {
     };
     reader.readAsText(file);
 }
-const darkModeToggle = document.getElementById('darkModeToggle');
-darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+
+function darkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function cloakIcon(url) {
+    const link = document.querySelector("link[rel~='icon']");
+    link.rel = "icon";
+    if ((url+"").trim().length === 0) {
+        link.href = "favicon.png";
+    } else {
+        link.href = url;
+    }
+    document.head.appendChild(link);
+}
+function cloakName(string) {
+    if ((string+"").trim().length === 0) {
+        document.title = "gn-math";
+        return;
+    }
+    document.title = string;
+}
+
+function tabCloak() {
+    closePopup();
+    document.getElementById('popupTitle').textContent = "Tab Cloak";
+    const popupBody = document.getElementById('popupBody');
+    popupBody.innerHTML = `
+        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Title:</label><br>
+        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab name..." oninput="cloakName(this.value)">
+        <br><br><br><br>
+        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Icon:</label><br>
+        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab icon..." oninput='cloakIcon(this.value)'>
+        <br><br><br>
+    `;
+    popupBody.contentEditable = false;
+    document.getElementById('popupOverlay').style.display = "flex";
+}
+
+const settings = document.getElementById('settings');
+settings.addEventListener('click', () => {
+    document.getElementById('popupTitle').textContent = "Settings";
+    const popupBody = document.getElementById('popupBody');
+    // idk a better way to do this ngl
+    popupBody.innerHTML = `
+    <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
+    <br><br>
+    <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
+    <br>
+    `;
+    popupBody.contentEditable = false;
+    document.getElementById('popupOverlay').style.display = "flex";
 });
-listZones();
 
 function showContact() {
     document.getElementById('popupTitle').textContent = "Contact";
     const popupBody = document.getElementById('popupBody');
     popupBody.innerHTML = `<p>Discord: https://discord.gg/NAFw4ykZ7n</p>`;
-    popupBody.contentEditable = true;
+    popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
 }
 
@@ -225,3 +273,4 @@ function loadPrivacy() {
 function closePopup() {
     document.getElementById('popupOverlay').style.display = "none";
 }
+listZones();
