@@ -4,7 +4,7 @@ let zoneFrame = document.getElementById('zoneFrame');
 const searchBar = document.getElementById('searchBar');
 const sortOptions = document.getElementById('sortOptions');
 // https://www.jsdelivr.com/tools/purge
-const zonesURL = "https://cdn.jsdelivr.net/gh/gn-math/assets@latest/zones.json";
+const zonesURL = "https://cdn.jsdelivr.net/gh/gn-math/assets@main/zones.json";
 const coverURL = "https://cdn.jsdelivr.net/gh/gn-math/covers@main";
 const htmlURL = "https://cdn.jsdelivr.net/gh/gn-math/html@main";
 let zones = [];
