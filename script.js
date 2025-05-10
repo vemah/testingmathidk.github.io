@@ -1,9 +1,3 @@
-aboutBlankTab()
-if (window.localStorage.get("aboutblankTemp")) {
-    window.localStorage.set("aboutblank", true)
-    window.localStorage.set("aboutblankTemp", false)
-}
-
 const container = document.getElementById('container');
 const zoneViewer = document.getElementById('zoneViewer');
 let zoneFrame = document.getElementById('zoneFrame');
@@ -250,31 +244,11 @@ settings.addEventListener('click', () => {
     <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
     <br><br>
     <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
-    <br><br>
-    <button id="settings-button" onclick="toggleAutoBlankTab()">Auto about:blank</button>
     <br>
     `;
     popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
 });
-
-function aboutBlankTab() {
-    if (window.localStorage.get("aboutblank") && !window.localStorage.get("aboutblankTemp")) {
-        fetch('https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/singlefile.html').then(res => res.text()).then(text => {
-            window.localStorage.set("aboutblank", false)
-            window.localStorage.set("aboutblankTemp", true)
-            const newTab = window.open("about:blank", "_blank");
-            newTab.document.write(text);
-            newTab.document.close();
-            window.close();
-        });
-    }
-}
-
-function toggleAutoBlankTab() {
-    window.localStorage.get("aboutblank") ? window.localStorage.set("aboutblank", false) : window.localStorage.set("aboutblank", true)
-    window.localStorage.get("aboutblank") ? aboutBlankTab() : window.location.href = "https://gn-math.github.io"
-}
 
 function showContact() {
     document.getElementById('popupTitle').textContent = "Contact";
