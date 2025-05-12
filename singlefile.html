@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    <head>
     <script>
         window.addEventListener('beforeunload', function (event) {
             event.preventDefault();
@@ -9,9 +8,8 @@
             return 'Are you sure you want to leave? Any unsaved changes will be lost.';
         });
     </script>
-    <base href="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5521219086088837" crossorigin="anonymous"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX5VS54ZDW"></script>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5521219086088837" crossorigin="anonymous"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WX5VS54ZDW"></script>
     <meta name="google-adsense-account" content="ca-pub-5521219086088837">
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,17 +20,12 @@
         gtag('js', new Date());
         gtag('config', 'G-WX5VS54ZDW');
     </script>
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-    <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5521219086088837"
-     data-ad-slot="5549138288"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+    <script async="" src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
+    <script async="" src="https://fundingchoicesmessages.google.com/b/pub-5521219086088837"></script><script async="" src="https://fundingchoicesmessages.google.com/b/pub-5521219086088837"></script><script async="" src="https://fundingchoicesmessages.google.com/b/pub-5521219086088837"></script><script async="" src="https://fundingchoicesmessages.google.com/b/pub-5521219086088837"></script></head><body class="dark-mode"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5521219086088837" data-ad-slot="5549138288" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done"><iframe id="aswift_0" style="height: 1px !important; max-height: 1px !important; max-width: 1px !important; width: 1px !important;"><iframe id="google_ads_frame0"></iframe></iframe></ins><iframe name="googlefcPresent" style="width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px; display: none;"></iframe>
     <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <script src='https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js'></script>
+    <script src="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js"></script>
     <meta charset="UTF-8">
     <link rel="icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,445 +42,413 @@
     <meta name="twitter:description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
     <meta name="keywords" content="unblocked games, games for school, browser games, chromebook games, no download games, html5 games, free unblocked games, gn-math, fun games at school, crazy cattle 3d, play crazy cattle 3d, crazy cattle 3d unblocked, crazy cattle, crazy cattle unblocked, play crazy cattle, crazy cattle online, crazy cattle 3d online">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333;
-            color: #fff;
+        :root {
+            --primary-color: #5D5CDE;
+            --text-color: #333;
+            --background-color: #FFFFFF;
+            --card-bg: #f8f8f8;
+            --card-border: #e0e0e0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --popup-bg: #fff;
         }
 
-        h1 {
+        .dark-mode {
+            --primary-color: #6e6df0;
+            --text-color: #e0e0e0;
+            --background-color: #181818;
+            --card-bg: #252525;
+            --card-border: #383838;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --popup-bg: #252525;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
             text-align: center;
-            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+            margin: 0.5rem 0;
         }
 
         #searchBar {
-            display: block;
-            margin: 20px auto;
-            padding: 10px;
-            width: 80%;
-            max-width: 800px;
-            border: 1px solid #666;
-            border-radius: 5px;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+            flex-grow: 1;
+            min-width: 0;
             font-size: 16px;
-            background-color: #444;
-            color: #fff;
+        }
+
+        #sortOptions {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+            font-size: 16px;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        #settings {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
         }
 
         #container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-            max-width: 800px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 1rem;
         }
 
         .zone-item {
-            background-color: #444;
-            border: 1px solid #666;
-            border-radius: 5px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
             overflow: hidden;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             cursor: pointer;
-            color: #fff;
+            box-shadow: 0 2px 4px var(--shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zone-item:hover {
+            background-color: var(--card-border);
         }
 
         .zone-item img {
             width: 100%;
-            height: auto;
+            aspect-ratio: 1;
             object-fit: cover;
         }
 
         .zone-item button {
-            width: 100%;
-            padding: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
             border: none;
-            background-color: #007bff;
-            color: white;
+            padding: 10px;
             cursor: pointer;
-            border-radius: 0 0 5px 5px;
-            font-size: 14px;
-            transition: background-color 0.2s;
-        }
-
-        .zone-item button:hover {
-            background-color: #0056b3;
+            font-weight: bold;
+            flex-grow: 1;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         #zoneViewer {
-            display: none;
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: #222;
-            border: 2px solid #000;
-            z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        #zoneViewer iframe {
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 90%;
-            border: none;
-            background-color: #333;
+            height: 100%;
+            background-color: var(--background-color);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
         }
 
-        #zoneInfo {
+        .zone-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 5px;
-            background: #555;
-            color: #fff;
-            font-size: 16px;
+            justify-content: space-between;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
         }
 
-        #zoneTitle {
-            text-align: left;
+        .zone-title {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #zoneName {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
         }
 
         #zoneId {
-            color: #9c9c9c;
+            display: none;
         }
 
         #zoneAuthor {
-            color: #aaaaaa;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
         }
 
-        #controls {
-            text-align: right;
+        #zoneAuthor:hover {
+            text-decoration: underline;
         }
 
-        #controls button {
-            padding: 5px 10px;
-            margin: 0 5px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 14px;
-            transition: background-color 0.2s;
-        }
-
-        #controls button:hover {
-            background-color: #0056b3;
-        }
-
-        #topControls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-
-        #dataButtons {
+        .zone-controls {
             display: flex;
             gap: 10px;
         }
 
-        #dataButtons button {
-            padding: 10px 15px;
-            border: none;
-            background-color: #4CAF50;
+        .zone-controls button {
+            background-color: transparent;
+            border: 1px solid white;
             color: white;
+            padding: 0.5rem;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
+            font-size: 14px;
         }
 
-        #dataButtons button:hover {
-            background-color: #367C39;
+        .zone-controls button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        #dataButtons input[type="file"] {
-            display: inline-block;
-            padding: 10px 15px;
-            border: 1px solid #666;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            background-color: #555;
-            color: #fff;
-        }
-
-        #sortOptions {
-            padding: 10px;
-            border: 1px solid #666;
-            border-radius: 5px;
-            font-size: 16px;
-            appearance: none;
-            background-color: white;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23343a40" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right .75rem center;
-            background-size: 8px 10px;
-        }
-
-        #sortOptions:focus {
-            border-color: #80bdff;
-            outline: 0;
-            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-        }
-
-        #settings {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 10px 15px;
+        #zoneFrame {
+            flex-grow: 1;
             border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            z-index: 1000;
-        }
-
-        #settings:hover {
-            background-color: #0056b3;
-        }
-
-        #settings-button {
-            position: fixed;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-            z-index: 1000;
-        }
-
-        #settings-button:hover {
-            background-color: #0056b3;
-        }
-
-        #tab-cloak-textbox {
-            position: fixed;
-            width: 250px;
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #007bff;
-            border-radius: 5px;
-            outline: none;
-            background-color: white;
-            color: #333;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        #tab-cloak-textbox:focus {
-            border-color: #0056b3;
-            box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
-        }
-
-        body:not(.dark-mode) {
-            background-color: #f4f4f4;
-            color: #000;
-        }
-
-        body:not(.dark-mode) h1 {
-            color: #000;
-        }
-
-        body:not(.dark-mode) #searchBar {
-            border-color: #ddd;
-            background-color: #fff;
-            color: #000;
-        }
-
-        body:not(.dark-mode) .zone-item {
-            background-color: white;
-            border-color: #ddd;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            color: #000;
-        }
-
-        body:not(.dark-mode) #zoneViewer {
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        body:not(.dark-mode) #zoneViewer iframe {
-            background-color: #fff;
-        }
-
-        body:not(.dark-mode) #zoneInfo {
-            background: #ddd;
-            color: #000;
-        }
-
-        body:not(.dark-mode) #dataButtons input[type="file"] {
-            border-color: #ddd;
-            background-color: #f9f9f9;
-            color: #000;
-        }
-
-        body:not(.dark-mode) #sortOptions {
-            background-color: white;
-            color: #000;
-            border-color: #ddd;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
-        }
-
-        .zone-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .zone-count {
-            text-align: center;
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--text-color, #ffffff);
-        }
-
-        #footerButtons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        #footerButtons button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        #footerButtons button:hover {
-            background-color: #0056b3;
+            width: 100%;
+            height: 100%;
         }
 
         #popupOverlay {
-            display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 2000;
-            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
             align-items: center;
+            justify-content: center;
+            z-index: 2000;
         }
 
-        #popupContent {
-            background: #222;
-            color: white;
-            width: 80%;
-            max-width: 600px;
+        .popup {
+            background-color: var(--popup-bg);
             border-radius: 8px;
-            padding: 20px;
-            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        #popupHeader {
+        .popup-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
         }
 
-        #popupHeader button {
-            padding: 5px 10px;
-            background-color: #dc3545;
+        #popupTitle {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        #popupClose {
+            background: transparent;
             border: none;
             color: white;
+            font-size: 1.5rem;
             cursor: pointer;
-            border-radius: 5px;
+            line-height: 1;
         }
 
         #popupBody {
-            max-height: 400px;
+            padding: 1rem;
             overflow-y: auto;
-            background-color: #333;
-            padding: 10px;
+            color: var(--text-color);
+        }
+
+        #popupBody input[type="text"],
+        #popupBody input[type="file"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--card-border);
             border-radius: 4px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 16px;
         }
 
-        #download.green-button {
-            padding: 5px 10px;
-            margin: 0 5px;
-            border: none;
-            background-color: #28a745;
+        #settings-button {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-color);
             color: white;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
-            border-radius: 3px;
-            font-size: 14px;
-            transition: background-color 0.2s;
+            font-size: 16px;
+            margin-bottom: 1rem;
         }
 
-        #download.green-button:hover {
-            background-color: #218838;
+        footer {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        #zoneCount {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            #container {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .zone-item img {
+                height: 140px;
+            }
+
+            .zone-item button {
+                height: 60px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
-
-<body class="dark-mode">
-    <h1>gn-math</h1>
-    <input type="text" id="searchBar" placeholder="Search zones..." onkeyup="filterZones()">
-    <div id="topControls">
-        <div id="dataButtons">
-            <button onclick="saveData()">Save Data</button>
-            <button onclick="document.getElementById('file').click()">Load Data</button>
-            <input type="file" id="file" style="display:none" onchange="loadData(event)" />
-        </div>
-        <select id="sortOptions" onchange="sortZones()">
-            <option value="name">by Nameㅤ</option>
-            <option value="id">by Id (Date)ㅤ</option>
-            <option value="popular">by Popularityㅤ</option>
-        </select>
-    </div>
-    <div class="zone-wrapper">
-        <div id="zoneCount" class="zone-count"></div>
-        <div id="container">Loading...</div>
-    </div>
-    <div id="zoneViewer">
-        <div id="zoneInfo">
-            <div id="zoneTitle">
-                <span id="zoneName"></span> <a id="zoneAuthor"></a> <span id="zoneId"></span>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">gn-math</div>
+            <div class="search-container">
+                <input type="text" id="searchBar" placeholder="Search games..." oninput="filterZones()">
+                <select id="sortOptions" onchange="sortZones()">
+                    <option value="popular">Popular</option>
+                    <option value="name">Name</option>
+                    <option value="id">ID</option>
+                </select>
             </div>
-            <div id="controls">
-                <button onclick="downloadZone()" id="download" class="green-button">Download Local</button>
-                <button onclick="closeZone()">Close</button>
+            <div class="control-buttons">
+                <button id="settings" style="background-color: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.5rem 1rem; font-size: 16px; cursor: pointer;">Settings</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="zoneCount">Loading games...</div>
+        <div id="container">Loading...</div>
+    </main>
+
+    <div id="zoneViewer">
+        <div class="zone-header">
+            <div class="zone-title">
+                <h2 id="zoneName">Game</h2>
+                <span id="zoneId" style="display: none;"></span>
+                <a id="zoneAuthor" href="#" target="_blank">by Author</a>
+            </div>
+            <div class="zone-controls">
                 <button onclick="fullscreenZone()">Fullscreen</button>
-                <button onclick="aboutBlank()">about:blank (use if embed is broken)</button>
+                <button onclick="aboutBlank()">Open in New Tab</button>
+                <button onclick="downloadZone()">Download</button>
+                <button onclick="closeZone()">Close</button>
             </div>
         </div>
         <iframe id="zoneFrame"></iframe>
     </div>
-    <button id="settings">Settings</button>
-    <div id="footerButtons">
-        <button onclick="showContact()">Contact</button>
-        <button onclick="loadPrivacy()">Privacy Policy</button>
-    </div>
+
     <div id="popupOverlay">
-        <div id="popupContent">
-            <div id="popupHeader">
-                <span id="popupTitle"></span>
-                <button onclick="closePopup()">Close</button>
+        <div class="popup">
+            <div class="popup-header">
+                <h3 id="popupTitle">Title</h3>
+                <button id="popupClose" onclick="closePopup()">×</button>
             </div>
-            <div id="popupBody" contenteditable="false"></div>
+            <div id="popupBody">
+                Content will be here
+            </div>
         </div>
     </div>
-    <script>
 
+    <footer>
+        <div class="footer-links">
+            <a href="#" onclick="showContact(); return false;">Contact</a>
+            <a href="#" onclick="loadPrivacy(); return false;">Privacy Policy</a>
+            <a href="javascript:saveData()">Export Data</a>
+            <label for="importData" style="color: var(--primary-color); cursor: pointer;">Import Data</label>
+            <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
+        </div>
+    </footer>
+
+    <script>
         const container = document.getElementById('container');
         const zoneViewer = document.getElementById('zoneViewer');
         let zoneFrame = document.getElementById('zoneFrame');
@@ -501,7 +462,7 @@
         let popularityData = {};
         async function listZones() {
             try {
-                const response = await fetch(zonesURL + "?t=" + Date.now());
+                const response = await fetch(zonesURL+"?t="+Date.now());
                 const json = await response.json();
                 zones = json;
                 await fetchPopularity();
@@ -583,7 +544,7 @@
                 window.open(file.url, "_blank");
             } else {
                 const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-                fetch(url + "?t=" + Date.now()).then(response => response.text()).then(html => {
+                fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
                     if (zoneFrame.contentDocument === null) {
                         zoneFrame = document.createElement("iframe");
                         zoneFrame.id = "zoneFrame";
@@ -606,7 +567,7 @@
         function aboutBlank() {
             const newWindow = window.open("about:blank", "_blank");
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-            fetch(zone + "?t=" + Date.now()).then(response => response.text()).then(html => {
+            fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
                 if (newWindow) {
                     newWindow.document.open();
                     newWindow.document.write(html);
@@ -622,7 +583,7 @@
 
         function downloadZone() {
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent);
-            fetch(zone.url.replace("{HTML_URL}", htmlURL) + "?t=" + Date.now()).then(res => res.text()).then(text => {
+            fetch(zone.url.replace("{HTML_URL}", htmlURL)+"?t="+Date.now()).then(res => res.text()).then(text => {
                 const blob = new Blob([text], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -674,7 +635,6 @@
                         localStorage.setItem(key, parsedData[key]);
                     }
                 } catch (error) {
-                    console.error(error);
                 }
                 if (cookieData) {
                     const cookies = cookieData.split("; ");
@@ -694,16 +654,15 @@
         function cloakIcon(url) {
             const link = document.querySelector("link[rel~='icon']");
             link.rel = "icon";
-            if ((url + "").trim().length === 0) {
+            if ((url+"").trim().length === 0) {
                 link.href = "favicon.png";
             } else {
                 link.href = url;
             }
             document.head.appendChild(link);
         }
-
         function cloakName(string) {
-            if ((string + "").trim().length === 0) {
+            if ((string+"").trim().length === 0) {
                 document.title = "gn-math";
                 return;
             }
@@ -715,28 +674,27 @@
             document.getElementById('popupTitle').textContent = "Tab Cloak";
             const popupBody = document.getElementById('popupBody');
             popupBody.innerHTML = `
-        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Title:</label><br>
-        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab name..." oninput="cloakName(this.value)">
-        <br><br>
-        <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Icon:</label><br>
-        <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab icon..." oninput='cloakIcon(this.value)'>
-        <br><br>
-        <br>
-    `;
+                <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Title:</label><br>
+                <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab name..." oninput="cloakName(this.value)">
+                <br><br><br><br>
+                <label for="tab-cloak-textbox" style="font-weight: bold;">Set Tab Icon:</label><br>
+                <input type="text" id="tab-cloak-textbox" placeholder="Enter new tab icon..." oninput='cloakIcon(this.value)'>
+                <br><br><br>
+            `;
             popupBody.contentEditable = false;
             document.getElementById('popupOverlay').style.display = "flex";
         }
+
         const settings = document.getElementById('settings');
         settings.addEventListener('click', () => {
             document.getElementById('popupTitle').textContent = "Settings";
             const popupBody = document.getElementById('popupBody');
-            // idk a better way to do this ngl
             popupBody.innerHTML = `
-    <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
-    <br><br>
-    <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
-    <br>
-    `;
+            <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
+            <br><br>
+            <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
+            <br>
+            `;
             popupBody.contentEditable = false;
             document.getElementById('popupOverlay').style.display = "flex";
         });
@@ -750,15 +708,41 @@
         }
 
         function loadPrivacy() {
-            fetch('privacy.txt').then(response => response.text()).then(data => {
-                document.getElementById('popupTitle').textContent = "Privacy Policy";
-                const popupBody = document.getElementById('popupBody');
-                popupBody.textContent = data;
-                popupBody.contentEditable = false;
-                document.getElementById('popupOverlay').style.display = "flex";
-            }).catch(err => {
-                alert("Failed to load privacy policy: " + err);
-            });
+            document.getElementById('popupTitle').textContent = "Privacy Policy";
+            const popupBody = document.getElementById('popupBody');
+            popupBody.innerHTML = `
+                <div style="max-height: 60vh; overflow-y: auto;">
+                    <h2>PRIVACY POLICY</h2>
+                    <p>Last updated April 17, 2025</p>
+                    <p>This Privacy Notice for gn-math ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:</p>
+                    <ul>
+                        <li>Visit our website at <a href="https://gn-math.github.io">https://gn-math.github.io</a>, or any website of ours that links to this Privacy Notice</li>
+                        <li>Engage with us in other related ways, including any sales, marketing, or events</li>
+                    </ul>
+                    <p>Questions or concerns? Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="https://discord.gg/NAFw4ykZ7n">https://discord.gg/NAFw4ykZ7n</a>.</p>
+                    
+                    <h3>SUMMARY OF KEY POINTS</h3>
+                    <p>This summary provides key points from our Privacy Notice, but you can find out more details about any of these topics by clicking the link following each key point or by using our table of contents below to find the section you are looking for.</p>
+                    
+                    <p><strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about personal information you disclose to us.</p>
+                    
+                    <p><strong>Do we process any sensitive personal information?</strong> Some of the information may be considered "special" or "sensitive" in certain jurisdictions, for example your racial or ethnic origins, sexual orientation, and religious beliefs. We do not process sensitive personal information.</p>
+                    
+                    <p><strong>Do we collect any information from third parties?</strong> We do not collect any information from third parties.</p>
+                    
+                    <p><strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about how we process your information.</p>
+                    
+                    <p><strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations and with specific third parties. Learn more about when and with whom we share your personal information.</p>
+                    
+                    <p><strong>How do we keep your information safe?</strong> We have adequate organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Learn more about how we keep your information safe.</p>
+                    
+                    <p><strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about your privacy rights.</p>
+                    
+                    <p><strong>How do you exercise your rights?</strong> The easiest way to exercise your rights is by submitting a data subject access request, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+                </div>
+            `;
+            popupBody.contentEditable = false;
+            document.getElementById('popupOverlay').style.display = "flex";
         }
 
         function closePopup() {
@@ -767,5 +751,4 @@
         listZones();
     </script>
 </body>
-
 </html>
