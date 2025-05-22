@@ -1,5 +1,5 @@
         :root {
-            --primary-color: #5D5CDE;
+            --primary-color: #fc2651;
             --text-color: #333;
             --background-color: #FFFFFF;
             --card-bg: #f8f8f8;
@@ -9,7 +9,7 @@
         }
 
         .dark-mode {
-            --primary-color: #6e6df0;
+            --primary-color: #fc2651;
             --text-color: #e0e0e0;
             --background-color: #181818;
             --card-bg: #252525;
