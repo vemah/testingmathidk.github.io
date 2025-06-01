@@ -109,6 +109,9 @@
                         document.getElementById('zoneAuthor').href = file.authorLink;
                     }
                     zoneViewer.style.display = "block";
+                    const url = new URL(window.location);
+                    url.searchParams.set('id', file.id);
+                    history.pushState(null, '', url.toString());
                 }).catch(error => alert("Failed to load zone: " + error));
             }
         }
@@ -128,6 +131,9 @@
         function closeZone() {
             zoneViewer.style.display = "none";
             zoneViewer.removeChild(zoneFrame);
+            const url = new URL(window.location);
+            url.searchParams.delete('id');
+            history.pushState(null, '', url.toString());
         }
 
         function downloadZone() {
