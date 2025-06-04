@@ -25,6 +25,7 @@
                     }
                 }
             } catch (error) {
+                console.error(error);
                 container.innerHTML = `Error loading zones: ${error}`;
             }
         }
@@ -59,7 +60,7 @@
 
         function displayZones(zones) {
             container.innerHTML = "";
-            zones.forEach(file => {
+            zones.forEach((file, index) => {
                 const zoneItem = document.createElement("div");
                 zoneItem.className = "zone-item";
                 zoneItem.onclick = () => openZone(file);
