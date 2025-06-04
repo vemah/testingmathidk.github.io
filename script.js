@@ -80,9 +80,10 @@
                     adContainer.innerHTML = `
                         <ins class="adsbygoogle"
                             style="display:block"
-                            data-ad-format="autorelaxed"
                             data-ad-client="ca-pub-5521219086088837"
-                            data-ad-slot="9806971127"></ins>
+                            data-ad-slot="1006281672"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
                     `;
                     container.appendChild(adContainer);
                 
