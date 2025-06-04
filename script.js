@@ -74,6 +74,21 @@
                 };
                 zoneItem.appendChild(button);
                 container.appendChild(zoneItem);
+                if ((index + 1) % 6 === 0) {
+                    const ad = document.createElement('div');
+                    ad.innerHTML = `
+                    <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-5521219086088837"
+                    data-ad-slot="5549138288"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                   <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                   </script>
+                    `;
+                    container.appendChild(ad);
+                }
             });
             if (container.innerHTML === "") {
                 container.innerHTML = "No zones found.";

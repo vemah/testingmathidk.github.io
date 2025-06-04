@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
+    <base href="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -23,15 +25,24 @@
         gtag('js', new Date());
         gtag('config', 'G-WX5VS54ZDW');
     </script>
-    <script async src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script><script>(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();</script>
-    <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5521219086088837"
-     data-ad-slot="5549138288"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+    <script async src="https://fundingchoicesmessages.google.com/i/pub-5521219086088837?ers=1"></script>
     <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
+        (function () {
+            function signalGooglefcPresent() {
+                if (!window.frames['googlefcPresent']) {
+                    if (document.body) {
+                        const iframe = document.createElement('iframe');
+                        iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+                        iframe.style.display = 'none';
+                        iframe.name = 'googlefcPresent';
+                        document.body.appendChild(iframe);
+                    } else {
+                        setTimeout(signalGooglefcPresent, 0);
+                    }
+                }
+            }
+            signalGooglefcPresent();
+        })();
     </script>
     <script src="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/gnmath.js"></script>
     <meta charset="UTF-8">
@@ -393,6 +404,7 @@
         }
     </style>
 </head>
+
 <body class="dark-mode">
     <header>
         <div class="header-content">
@@ -410,12 +422,14 @@
             </div>
         </div>
     </header>
-
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5521219086088837" data-ad-slot="5549138288" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <main>
         <div id="zoneCount">Loading zones...</div>
         <div id="container">Loading...</div>
     </main>
-
     <div id="zoneViewer">
         <div class="zone-header">
             <div class="zone-title">
@@ -432,19 +446,19 @@
         </div>
         <iframe id="zoneFrame"></iframe>
     </div>
-
     <div id="popupOverlay">
         <div class="popup">
             <div class="popup-header">
                 <h3 id="popupTitle">Title</h3>
                 <button id="popupClose" onclick="closePopup()">×</button>
             </div>
-            <div id="popupBody">
-                Content will be here
-            </div>
+            <div id="popupBody"> Content will be here </div>
         </div>
     </div>
-
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5521219086088837" data-ad-slot="5549138288" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     <footer>
         <div class="footer-links">
             <a href="#" onclick="showContact(); return false;">Contact</a>
@@ -454,9 +468,8 @@
             <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
         </div>
     </footer>
-
     <script>
-                const container = document.getElementById('container');
+        const container = document.getElementById('container');
         const zoneViewer = document.getElementById('zoneViewer');
         let zoneFrame = document.getElementById('zoneFrame');
         const searchBar = document.getElementById('searchBar');
@@ -469,7 +482,7 @@
         let popularityData = {};
         async function listZones() {
             try {
-                const response = await fetch(zonesURL+"?t="+Date.now());
+                const response = await fetch(zonesURL + "?t=" + Date.now());
                 const json = await response.json();
                 zones = json;
                 await fetchPopularity();
@@ -532,6 +545,21 @@
                 };
                 zoneItem.appendChild(button);
                 container.appendChild(zoneItem);
+                if ((index + 1) % 6 === 0) {
+                    const ad = document.createElement('div');
+                    ad.innerHTML = `
+                    <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-5521219086088837"
+                    data-ad-slot="5549138288"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                   <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                   <\/script>
+                    `;
+                    container.appendChild(ad);
+                }
             });
             if (container.innerHTML === "") {
                 container.innerHTML = "No zones found.";
@@ -551,7 +579,7 @@
                 window.open(file.url, "_blank");
             } else {
                 const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-                fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
+                fetch(url + "?t=" + Date.now()).then(response => response.text()).then(html => {
                     if (zoneFrame.contentDocument === null) {
                         zoneFrame = document.createElement("iframe");
                         zoneFrame.id = "zoneFrame";
@@ -567,6 +595,9 @@
                         document.getElementById('zoneAuthor').href = file.authorLink;
                     }
                     zoneViewer.style.display = "block";
+                    const url = new URL(window.location);
+                    url.searchParams.set('id', file.id);
+                    history.pushState(null, '', url.toString());
                 }).catch(error => alert("Failed to load zone: " + error));
             }
         }
@@ -574,7 +605,7 @@
         function aboutBlank() {
             const newWindow = window.open("about:blank", "_blank");
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent).url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
-            fetch(zone+"?t="+Date.now()).then(response => response.text()).then(html => {
+            fetch(zone + "?t=" + Date.now()).then(response => response.text()).then(html => {
                 if (newWindow) {
                     newWindow.document.open();
                     newWindow.document.write(html);
@@ -586,11 +617,14 @@
         function closeZone() {
             zoneViewer.style.display = "none";
             zoneViewer.removeChild(zoneFrame);
+            const url = new URL(window.location);
+            url.searchParams.delete('id');
+            history.pushState(null, '', url.toString());
         }
 
         function downloadZone() {
             let zone = zones.find(zone => zone.id + '' === document.getElementById('zoneId').textContent);
-            fetch(zone.url.replace("{HTML_URL}", htmlURL)+"?t="+Date.now()).then(res => res.text()).then(text => {
+            fetch(zone.url.replace("{HTML_URL}", htmlURL) + "?t=" + Date.now()).then(res => res.text()).then(text => {
                 const blob = new Blob([text], {
                     type: "text/plain;charset=utf-8"
                 });
@@ -641,8 +675,7 @@
                     for (let key in parsedData) {
                         localStorage.setItem(key, parsedData[key]);
                     }
-                } catch (error) {
-                }
+                } catch (error) {}
                 if (cookieData) {
                     const cookies = cookieData.split("; ");
                     cookies.forEach(cookie => {
@@ -661,15 +694,16 @@
         function cloakIcon(url) {
             const link = document.querySelector("link[rel~='icon']");
             link.rel = "icon";
-            if ((url+"").trim().length === 0) {
+            if ((url + "").trim().length === 0) {
                 link.href = "favicon.png";
             } else {
                 link.href = url;
             }
             document.head.appendChild(link);
         }
+
         function cloakName(string) {
-            if ((string+"").trim().length === 0) {
+            if ((string + "").trim().length === 0) {
                 document.title = "gn-math";
                 return;
             }
@@ -691,7 +725,6 @@
             popupBody.contentEditable = false;
             document.getElementById('popupOverlay').style.display = "flex";
         }
-
         const settings = document.getElementById('settings');
         settings.addEventListener('click', () => {
             document.getElementById('popupTitle').textContent = "Settings";
@@ -756,14 +789,12 @@
             document.getElementById('popupOverlay').style.display = "none";
         }
         listZones();
-        
         const schoolList = ["deledao", "goguardian", "lightspeed", "linewize", "securly", ".edu/"];
 
         function isBlockedDomain(url) {
             const domain = new URL(url, location.origin).hostname + "/";
             return schoolList.some(school => domain.includes(school));
         }
-
         const originalFetch = window.fetch;
         window.fetch = function (url, options) {
             if (isBlockedDomain(url)) {
@@ -772,7 +803,6 @@
             }
             return originalFetch.apply(this, arguments);
         };
-
         const originalOpen = XMLHttpRequest.prototype.open;
         XMLHttpRequest.prototype.open = function (method, url) {
             if (isBlockedDomain(url)) {
@@ -781,10 +811,10 @@
             }
             return originalOpen.apply(this, arguments);
         };
-
         HTMLCanvasElement.prototype.toDataURL = function (...args) {
             return "";
         };
     </script>
 </body>
+
 </html>
