@@ -75,23 +75,6 @@
                 };
                 zoneItem.appendChild(button);
                 container.appendChild(zoneItem);
-                if ((index + 1) % 12 === 0) {
-                    const adItem = document.createElement("div");
-                    adItem.className = "zone-item";
-                    const adContainer = document.createElement('div');
-                    adContainer.innerHTML = `
-                        <ins class="adsbygoogle"
-                            style="display:block"
-                            data-ad-format="autorelaxed"
-                            data-ad-client="ca-pub-5521219086088837"
-                            data-ad-slot="9806971127"></ins>
-                    `;
-                    adItem.appendChild(adContainer);
-                    const script = document.createElement('script');
-                    script.innerHTML = `(adsbygoogle = window.adsbygoogle || []).push({});`;
-                    adItem.appendChild(script);
-                    container.appendChild(adItem);
-                }
             });
             if (container.innerHTML === "") {
                 container.innerHTML = "No zones found.";
