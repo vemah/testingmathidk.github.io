@@ -79,7 +79,7 @@
                     const ad = document.createElement('div');
                     ad.innerHTML = `
                     <ins class="adsbygoogle"
-                    style="display:block"
+                    style="display:block; text-align:center;"
                     data-ad-client="ca-pub-5521219086088837"
                     data-ad-slot="5549138288"
                     data-ad-format="auto"
