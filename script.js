@@ -79,11 +79,10 @@
                     const adContainer = document.createElement('div');
                     adContainer.innerHTML = `
                         <ins class="adsbygoogle"
-                             style="display:block; text-align:center;"
-                             data-ad-client="ca-pub-5521219086088837"
-                             data-ad-slot="5549138288"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
+                            style="display:block"
+                            data-ad-format="autorelaxed"
+                            data-ad-client="ca-pub-5521219086088837"
+                            data-ad-slot="9806971127"></ins>
                     `;
                     container.appendChild(adContainer);
                 
