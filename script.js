@@ -9,11 +9,13 @@ const coverURL = "https://cdn.jsdelivr.net/gh/gn-math/covers@main";
 const htmlURL = "https://cdn.jsdelivr.net/gh/gn-math/html@main";
 let zones = [];
 let popularityData = {};
+const featuredContainer = document.getElementById('featuredZones');
 async function listZones() {
     try {
         const response = await fetch(zonesURL+"?t="+Date.now());
         const json = await response.json();
         zones = json;
+        zones[0].featured = true; // always gonna be the discord
         await fetchPopularity();
         sortZones();
         const search = new URLSearchParams(window.location.search);
@@ -102,7 +104,51 @@ function sortZones() {
         zones.sort((a, b) => (popularityData[b.id] || 0) - (popularityData[a.id] || 0));
     }
     zones.sort((a, b) => (a.id === -1 ? -1 : b.id === -1 ? 1 : 0));
+    const featured = zones.filter(z => z.featured);
+    displayFeaturedZones(featured);
     displayZones(zones);
+}
+
+function displayFeaturedZones(featuredZones) {
+    featuredContainer.innerHTML = "";
+    featuredZones.forEach((file, index) => {
+        const zoneItem = document.createElement("div");
+        zoneItem.className = "zone-item";
+        zoneItem.onclick = () => openZone(file);
+        const img = document.createElement("img");
+        img.dataset.src = file.cover.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
+        img.alt = file.name;
+        img.loading = "lazy";
+        img.className = "lazy-zone-img";
+        zoneItem.appendChild(img);
+        const button = document.createElement("button");
+        button.textContent = file.name;
+        button.onclick = (event) => {
+            event.stopPropagation();
+            openZone(file);
+        };
+        zoneItem.appendChild(button);
+        featuredContainer.appendChild(zoneItem);
+    });
+
+    const lazyImages = document.querySelectorAll('#featuredZones img.lazy-zone-img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazy-zone-img");
+                observer.unobserve(img);
+            }
+        });
+    }, {
+        rootMargin: "100px", 
+        threshold: 0.1
+    });
+
+    lazyImages.forEach(img => {
+        imageObserver.observe(img);
+    });
 }
 
 function displayZones(zones) {
