@@ -18,10 +18,48 @@ async function listZones() {
         sortZones();
         const search = new URLSearchParams(window.location.search);
         const id = search.get('id');
+        const embed = window.location.hash.includes("embed");
         if (id) {
             const zone = zones.find(zone => zone.id + '' == id + '');
             if (zone) {
-                openZone(zone);
+                if (embed) {
+                    if (zone.url.startsWith("http")) {
+                        window.open(zone.url, "_blank");
+                    } else {
+                        const url = zone.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
+                        fetch(url+"?t="+Date.now()).then(response => response.text()).then(html => {
+                            document.documentElement.innerHTML = html;
+                            const popup = document.createElement("div");
+                            popup.style.position = "fixed";
+                            popup.style.bottom = "20px";
+                            popup.style.right = "20px";
+                            popup.style.backgroundColor = "#cce5ff";
+                            popup.style.color = "#004085";
+                            popup.style.padding = "10px";
+                            popup.style.border = "1px solid #b8daff";
+                            popup.style.borderRadius = "5px";
+                            popup.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.1)";
+                            popup.style.fontFamily = "Arial, sans-serif";
+                            
+                            popup.innerHTML = `Play more games at <a href="https://gn-math.github.io" target="_blank" style="color:#004085; font-weight:bold;">https://gn-math.github.io</a>!`;
+                            
+                            const closeBtn = document.createElement("button");
+                            closeBtn.innerText = "✖";
+                            closeBtn.style.marginLeft = "10px";
+                            closeBtn.style.background = "none";
+                            closeBtn.style.border = "none";
+                            closeBtn.style.cursor = "pointer";
+                            closeBtn.style.color = "#004085";
+                            closeBtn.style.fontWeight = "bold";
+                            
+                            closeBtn.onclick = () => popup.remove();
+                            popup.appendChild(closeBtn);
+                            document.body.appendChild(popup);
+                        }).catch(error => alert("Failed to load zone: " + error));
+                    }
+                } else {
+                    openZone(zone);
+                }
             }
         }
     } catch (error) {
