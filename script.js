@@ -55,6 +55,15 @@ async function listZones() {
                             closeBtn.onclick = () => popup.remove();
                             popup.appendChild(closeBtn);
                             document.body.appendChild(popup);
+                            document.documentElement.querySelectorAll('script').forEach(oldScript => {
+                                const newScript = document.createElement('script');
+                                if (oldScript.src) {
+                                    newScript.src = oldScript.src;
+                                } else {
+                                    newScript.textContent = oldScript.textContent;
+                                }
+                                document.body.appendChild(newScript);
+                            });
                         }).catch(error => alert("Failed to load zone: " + error));
                     }
                 } else {
