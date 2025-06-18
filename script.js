@@ -104,8 +104,10 @@ function sortZones() {
         zones.sort((a, b) => (popularityData[b.id] || 0) - (popularityData[a.id] || 0));
     }
     zones.sort((a, b) => (a.id === -1 ? -1 : b.id === -1 ? 1 : 0));
-    const featured = zones.filter(z => z.featured);
-    displayFeaturedZones(featured);
+    if (featuredContainer.innerHTML === "") {
+        const featured = zones.filter(z => z.featured);
+        displayFeaturedZones(featured);
+    }
     displayZones(zones);
 }
 
@@ -130,6 +132,11 @@ function displayFeaturedZones(featuredZones) {
         zoneItem.appendChild(button);
         featuredContainer.appendChild(zoneItem);
     });
+    if (featuredContainer.innerHTML === "") {
+        featuredContainer.innerHTML = "No featured zones found.";
+    } else {
+        document.getElementById("allZonesSummary").textContent = `Featured Zones (${featuredZones.length})`;
+    }
 
     const lazyImages = document.querySelectorAll('#featuredZones img.lazy-zone-img');
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -175,7 +182,7 @@ function displayZones(zones) {
     if (container.innerHTML === "") {
         container.innerHTML = "No zones found.";
     } else {
-        document.getElementById("zoneCount").textContent = `Zones Loaded: ${zones.length}`;
+        document.getElementById("allSummary").textContent = `All Zones (${zones.length})`;
     }
 
     const lazyImages = document.querySelectorAll('img.lazy-zone-img');
@@ -201,6 +208,9 @@ function displayZones(zones) {
 function filterZones() {
     const query = searchBar.value.toLowerCase();
     const filteredZones = zones.filter(zone => zone.name.toLowerCase().includes(query));
+    if (query.length !== 0) {
+        document.getElementById("featuredZonesWrapper").removeAttribute("open");
+    }
     displayZones(filteredZones);
 }
 

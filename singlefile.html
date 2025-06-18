@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <base href="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/">
+        <base href="https://cdn.jsdelivr.net/gh/gn-math/gn-math.github.io@main/">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <link rel="apple-touch-icon" href="/favicon.png">
@@ -420,14 +420,13 @@ footer {
    </script>
 
     <main>
-        <div id="zoneCount">Loading zones...</div>
         <details id="featuredZonesWrapper" open>
-            <summary style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Featured Zones</summary>
+            <summary id="allZonesSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Featured Zones</summary>
             <div id="featuredZones" class="zone-container"></div>
         </details>
         <br><hr><br>
         <details id="allZonesWrapper" open>
-            <summary style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">All Zones</summary>
+            <summary id="allSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">All Zones</summary>
             <div id="container">Loading...</div>
         </details>
     </main>
@@ -481,7 +480,7 @@ footer {
     </footer>
 
     <script>
-const container = document.getElementById('container');
+        const container = document.getElementById('container');
 const zoneViewer = document.getElementById('zoneViewer');
 let zoneFrame = document.getElementById('zoneFrame');
 const searchBar = document.getElementById('searchBar');
@@ -613,6 +612,11 @@ function displayFeaturedZones(featuredZones) {
         zoneItem.appendChild(button);
         featuredContainer.appendChild(zoneItem);
     });
+    if (featuredContainer.innerHTML === "") {
+        featuredContainer.innerHTML = "No featured zones found.";
+    } else {
+        document.getElementById("allZonesSummary").textContent = `Featured Zones (${featuredZones.length})`;
+    }
 
     const lazyImages = document.querySelectorAll('#featuredZones img.lazy-zone-img');
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -658,7 +662,7 @@ function displayZones(zones) {
     if (container.innerHTML === "") {
         container.innerHTML = "No zones found.";
     } else {
-        document.getElementById("zoneCount").textContent = `Zones Loaded: ${zones.length}`;
+        document.getElementById("allSummary").textContent = `All Zones (${zones.length})`;
     }
 
     const lazyImages = document.querySelectorAll('img.lazy-zone-img');
@@ -684,6 +688,9 @@ function displayZones(zones) {
 function filterZones() {
     const query = searchBar.value.toLowerCase();
     const filteredZones = zones.filter(zone => zone.name.toLowerCase().includes(query));
+    if (query.length !== 0) {
+        document.getElementById("featuredZonesWrapper").removeAttribute("open");
+    }
     displayZones(filteredZones);
 }
 
