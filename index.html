@@ -127,7 +127,13 @@
             <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
         </div>
     </footer>
-
     <script src="script.js"></script>
+    <script>
+        const search = new URLSearchParams(window.location.search);
+        const privacy = search.get('privacy');
+        if (privacy) {
+            loadPrivacy();
+        }
+    </script>
 </body>
 </html>
