@@ -18,6 +18,14 @@ let popularityData = {};
 const featuredContainer = document.getElementById('featuredZones');
 async function listZones() {
     try {
+        const sharesponse = await fetch("https://api.github.com/repos/gn-math/gn-math.github.io/commits?t="+Date.now());
+        if (sharesponse && sharesponse.status === 200) {
+            const shajson = await sharesponse.json();
+            const sha = shajson['sha'];
+            if (sha) {
+                zonesURL = `https://cdn.jsdelivr.net/gh/gn-math/assets@${sha}/zones.json`;
+            }
+        }
         const response = await fetch(zonesURL+"?t="+Date.now());
         const json = await response.json();
         zones = json;
