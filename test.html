@@ -750,18 +750,30 @@ let popularityData = {};
 const featuredContainer = document.getElementById('featuredZones');
 async function listZones() {
     try {
-              let sharesponse;
+      let sharesponse;
+      let shajson;
+      let sha;
         try {
           sharesponse = await fetch("https://api.github.com/repos/gn-math/assets/commits?t="+Date.now());
         } catch (error) {}
         if (sharesponse && sharesponse.status === 200) {
           try {
-            const shajson = await sharesponse.json();
-            const sha = shajson[0]['sha'];
+            shajson = await sharesponse.json();
+            sha = shajson[0]['sha'];
             if (sha) {
                 zonesURL = `https://cdn.jsdelivr.net/gh/gn-math/assets@${sha}/zones.json`;
             }
-          } catch (error) {}
+          } catch (error) {
+            try {
+                let secondarysharesponse = await fetch("https://raw.githubusercontent.com/gn-math/xml/refs/heads/main/sha.txt?t="+Date.now());
+                if (secondarysharesponse && secondarysharesponse.status === 200) {
+                    sha = (await secondarysharesponse.text()).trim();
+                    if (sha) {
+                        zonesURL = `https://cdn.jsdelivr.net/gh/gn-math/assets@${sha}/zones.json`;
+                    }
+                }
+            } catch(error) {}
+          }
         }
         const response = await fetch(zonesURL+"?t="+Date.now());
         const json = await response.json();
