@@ -427,7 +427,7 @@ async function saveData() {
     alert("Done, wait for the download to come");
     const link = document.createElement("a");
     link.href = URL.createObjectURL(new Blob([JSON.stringify(result)], {
-        type: "text/plain"
+        type: "application/octet-stream"
     }));
     link.download = `${Date.now()}.data`;
     document.body.appendChild(link);
