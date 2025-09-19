@@ -5,7 +5,7 @@ const searchBar = document.getElementById('searchBar');
 const sortOptions = document.getElementById('sortOptions');
 // https://www.jsdelivr.com/tools/purge
 const zonesurls = [
-    "https://cdn.jsdelivr.net/gh/gn-math/assets@main/zones.json",
+    "https://cdn.jsdelivr.net/%67%68/%67%6e%2d%6d%61%74%68/%61%73%73%65%74%73@%6d%61%69%6e/%7a%6f%6e%65%73%2e%6a%73%6f%6e",
     "https://cdn.jsdelivr.net/gh/gn-math/assets@latest/zones.json",
     "https://cdn.jsdelivr.net/gh/gn-math/assets@master/zones.json",
     "https://cdn.jsdelivr.net/gh/gn-math/assets/zones.json"
@@ -172,7 +172,7 @@ function displayFeaturedZones(featuredZones) {
     const lazyImages = document.querySelectorAll('#featuredZones img.lazy-zone-img');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !zoneViewer.hidden) {
                 const img = entry.target;
                 img.src = img.dataset.src;
                 img.classList.remove("lazy-zone-img");
@@ -219,7 +219,7 @@ function displayZones(zones) {
     const lazyImages = document.querySelectorAll('img.lazy-zone-img');
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !zoneViewer.hidden) {
                 const img = entry.target;
                 img.src = img.dataset.src;
                 img.classList.remove("lazy-zone-img");
@@ -269,6 +269,7 @@ function openZone(file) {
             const url = new URL(window.location);
             url.searchParams.set('id', file.id);
             history.pushState(null, '', url.toString());
+            zoneViewer.hidden = true;
         }).catch(error => alert("Failed to load zone: " + error));
     }
 }
@@ -286,6 +287,7 @@ function aboutBlank() {
 }
 
 function closeZone() {
+    zoneViewer.hidden = false;
     zoneViewer.style.display = "none";
     zoneViewer.removeChild(zoneFrame);
     const url = new URL(window.location);
@@ -620,6 +622,38 @@ function loadPrivacy() {
             <p><strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about your privacy rights.</p>
             
             <p><strong>How do you exercise your rights?</strong> The easiest way to exercise your rights is by submitting a data subject access request, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+        </div>
+    `;
+    popupBody.contentEditable = false;
+    document.getElementById('popupOverlay').style.display = "flex";
+}
+
+function loadDMCA() {
+    document.getElementById('popupTitle').textContent = "DMCA";
+    const popupBody = document.getElementById('popupBody');
+    popupBody.innerHTML = `
+        <div class="dmca-content">
+            <p>
+                If you own or developed a game that is on <strong>gn-math</strong> 
+                and would like it removed, please do one of the following:
+            </p>
+            <ol>
+                <li>
+                    <a href="https://discord.gg/D4c9VFYWyU" target="_blank" rel="noopener noreferrer">
+                        Join the Discord
+                    </a> and DM <strong>breadbb</strong> or ping me in a public channel 
+                    <strong>[INSTANT RESPONSE]</strong>
+                </li>
+                <li>
+                    Email me at 
+                    <a href="mailto:gn.math.business@gmail.com">gn.math.business@gmail.com</a> 
+                    with the subject starting with <code>!DMCA</code>.
+                    <strong>[DELAYED RESPONSE]</strong>
+                </li>
+            </ol>
+            <p>
+                If you are going to do an email, please show proof you own the game before I have to ask.
+            </p>
         </div>
     `;
     popupBody.contentEditable = false;

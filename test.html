@@ -737,12 +737,12 @@ const searchBar = document.getElementById('searchBar');
 const sortOptions = document.getElementById('sortOptions');
 // https://www.jsdelivr.com/tools/purge
 const zonesurls = [
-    "https://cdn.jsdelivr.net/gh/gn-math/assets@main/zones.json",
+    "https://cdn.jsdelivr.net/%67%68/%67%6e%2d%6d%61%74%68/%61%73%73%65%74%73@%6d%61%69%6e/%7a%6f%6e%65%73%2e%6a%73%6f%6e",
     "https://cdn.jsdelivr.net/gh/gn-math/assets@latest/zones.json",
     "https://cdn.jsdelivr.net/gh/gn-math/assets@master/zones.json",
     "https://cdn.jsdelivr.net/gh/gn-math/assets/zones.json"
 ];
-const zonesURL = zonesurls[Math.floor(Math.random() * zonesurls.length)];
+let zonesURL = zonesurls[Math.floor(Math.random() * zonesurls.length)];
 const coverURL = "https://cdn.jsdelivr.net/gh/gn-math/covers@main";
 const htmlURL = "https://cdn.jsdelivr.net/gh/gn-math/html@main";
 let zones = [];
@@ -778,6 +778,7 @@ async function listZones() {
         const response = await fetch(zonesURL+"?t="+Date.now());
         const json = await response.json();
         zones = json;
+                zones = json;
                 zones[0] = {
                     "id": -1,
                     "name": "[!] SUGGEST GAMES",
@@ -791,8 +792,7 @@ async function listZones() {
                     "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/1200px-Google_Sheets_logo_%282014-2020%29.svg.png",
                     "url": "$$$2"
                 };
-        zones[0].featured = true;
-        zones[asf].featured = true;
+        zones[0].featured = true; // always gonna be the discord
         await fetchPopularity();
         sortZones();
         const search = new URLSearchParams(window.location.search);
@@ -881,8 +881,10 @@ function sortZones() {
         zones.sort((a, b) => (popularityData[b.id] || 0) - (popularityData[a.id] || 0));
     }
     zones.sort((a, b) => (a.id === -1 ? -1 : b.id === -1 ? 1 : 0));
-    const featured = zones.filter(z => z.featured);
-    displayFeaturedZones(featured);
+    if (featuredContainer.innerHTML === "") {
+        const featured = zones.filter(z => z.featured);
+        displayFeaturedZones(featured);
+    }
     displayZones(zones);
 }
 

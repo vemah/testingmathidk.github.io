@@ -195,6 +195,7 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
+    padding-bottom: 6rem;
 }
 
 #zoneCount {
@@ -522,9 +523,14 @@ main {
 footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border);
-    padding: 2rem 1rem;
-    margin-top: 3rem;
+    padding: 1rem 1rem;
     text-align: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 
 .footer-links {
